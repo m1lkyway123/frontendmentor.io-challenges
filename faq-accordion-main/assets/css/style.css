@@ -1,0 +1,105 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body {
+    background-color: #F9EEFF;
+    font-family: sans-serif;
+}
+
+.accordion {
+    display: flex;
+    justify-self: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+.accordion__inner {
+    padding: 50px 46px 70px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: #fff;
+    border-radius: 20px;
+    width: 542px;
+    min-height: 520px;
+    box-shadow: 5px 10px 10px #E9D9F3;
+}
+.accordion__title {
+    font-size: 46px;
+    font-weight: 700;
+    margin-bottom: 28px;
+    padding-left: 54px;
+    position: relative;
+    color: #301534;
+}
+.accordion__title::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 41px;
+    background-image: url('../images/icon-star.svg');
+    left: 0;
+    top: 50px;
+    transform: translateY(-50px);
+}
+.accordion__item {
+    max-width: 450px;
+}
+.accordion__item + .accordion__item {
+    margin-top: 20px;
+    border-top: 1px solid #B6ACB7;
+    padding-top: 20px;
+}
+.accordion__item-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #301534;
+    margin-bottom: 30px;
+    cursor: pointer;
+    position: relative;
+}
+.accordion__item-title::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 31px;
+    background-image: url('../images/icon-plus.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    top: -6px;
+    right: 0;
+}
+.accordion__item-text {
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    color: #B6ACB7;
+    max-height: 0;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.accordion__item--active .accordion__item-title::after {
+    background-image: url('../images/icon-minus.svg');
+}
+.accordion__item--active .accordion__item-text {
+   max-height: 100px;
+}
+
+
+@media (max-width: 600px) {
+    .accordion__inner {
+        max-width: 400px;
+        width: 100%;
+    }
+    .accordion__item-title {
+        padding-right: 30px;
+    }
+}
